@@ -1,0 +1,59 @@
+\chapter{Introdução}
+
+
+%--------------------------------------------------------------------------------
+\section{Contexto e Motivação}
+
+A capacidade de armazenamento de dados alcançada pelo atual desenvolvimento tecnológico viabilizou a muitas empresas e instituições registrar dados relativos aos seus negócios em busca de obter melhores resultados e respostas de seus serviços.
+Porém, existe um longo caminho entre o armazenamento dos dados e a extração e interpretação de informações de interesse. 
+
+Empresas como Google dedicam esforços no sentido de explorar esses dados para fornecer uma publicidade direcionada aos seus clientes~\cite{google-dm}. A exploração de grandes bases de dados não precisa estar vinculada a algum interesse comercial, mas como essa atividade é muito dispendiosa acaba ocorrendo principalmente com esse pretexto ou dentro de algum ambiente de pesquisa.
+
+Por outro lado, existe uma imensa quantidade de dados sem um aparente interesse financeiro que pode oferecer à população recursos para compreender melhor a sociedade em diferentes aspectos. O governo brasileiro, por exemplo, tem trabalhado junto à OGP\footnote{\url{http://www.opengovpartnership.org/}} (Open Government Partnership) no sentido de oferecer uma maior transparência de suas atividades à população por meio da disponibilização de dados públicos. Exemplos desse esforço são os portais eletrônicos Portal da Transparência\footnote{\url{http://www.portaltransparencia.gov.br/}} e Portal Brasileiro de Dados Abertos\footnote{\url{http://beta.dados.gov.br/}}.
+
+Contudo, a iniciativa do governo é muito recente, formalizada no final de 2011 pelo 
+Decreto de 15 de setembro de 2011~\cite{decreto-15-09-11} e pela Lei de Acesso a Informação Pública~\cite{lei-12527}, e ainda requer um amadurecimento em questões de organização e aproveitamento dos dados.  Hoje, o governo se limita a disponibilizar os dados em sua forma bruta, ou seja, sem suporte a análise exploratória com intuito de extrair informações de interesse e ajudar na sua interpretação.
+
+O Portal da Transparência, mencionado anteriormente, possui uma vasta e variada base de dados, porém, em sua maioria, eles se encontram no formato de planilhas que são de difícil interpretação. Já o segundo portal mencionado, o Portal de Dados Abertos, disponibiliza os dados em formatos que podem ser tratados em larga escala,
+entretanto, não possui um registro tão vasto e variado como o do Portal da Transparência.
+
+Outro recurso fornecido pelo governo, por meio do TSE (Tribunal Superior Eleitoral), trata-se do Repositório de Dados  Eleitorais\footnote{\url{http://www.tse.jus.br/eleicoes/repositorio-de-dados-eleitorais}}. Este recurso conta com uma base de dados referente a candidatos, eleitorado, resultados e prestação de contas. Os registros contém informações de eleições municipais, estaduais e nacionais de 1994 até 2010 
+e encontram-se em formatos adequados para o processamento computacional, configurando uma fonte valiosa para entendimento dos mecanismos de funcionamento da política nacional, incluindo a possibilidade da análise das mudanças e evolução do cenário político nessas últimas décadas.
+
+Como esses dados são fornecidos pelo governo, a legitimidade é garantida e não existe qualquer restrição de uso, pois são constitucionalmente pertencentes à toda população~\cite{lei-12527}. Além disso, a base de dados a ser explorada é muito rica, são dados de eleições municipais, estaduais e nacionais desde 1994 até a última eleição realizada em 2010. Existe também uma grande precisão no detalhamento dos dados, como por exemplo, nível de escolaridade de um candidato, sua profissão, CPF ou CNPJ de financiadores de campanhas, entre outros.
+
+Contudo, apesar desses dados estarem livremente disponíveis, pela sua quantidade e alta complexidade (muitos atributos), acesso não representa subsídio para melhor entendimento da política brasileira para a população em geral. Esses precisam ser interpretados e ferramentas nesse sentido ainda não existem, ou são muito limitadas. 
+
+Este trabalho de conclusão de curso busca utilizar técnicas de visualização de informação e de teoria da informação para fornecer recursos para um aprofundamento no estudo dos dados eleitorais contidos no repositório de dados do TSE, buscando prover representação visuais intuitivas para que as habilidades visuais humanas possam ser empregadas para identificação e interpretação de tendências, padrões e comportamentos presentes nos dados.
+
+%--------------------------------------------------------------------------------
+\section{Objetivos}
+
+O primeiro objetivo deste trabalho é a construção de um banco de dados que centralize toda a informação adquirida esparsamente no repositório de dados do TSE. Grande fatia do tempo disponível foi dedicado para a realização deste objetivo, pois levantar, coletar, formatar e armazenar os dados são tarefas custosas, uma vez que inconsistências podem ocorrer.
+
+Uma vez criado o banco de dados é possível iniciar a fase de exploração. De modo a não fugir do cronograma estipulado para a conclusão deste trabalho, definiu-se o escopo de análises sobre resultados de candidaturas e financiamento de campanha. A análise de resultados deu-se pelo uso de técnicas de teoria da informação aliadas à representações visuais. A análise de financiamento de campanha fez-se por técnicas de visualização de grafos.
+
+Assim, os objetivos deste trabalho podem ser listados da seguinte maneira:
+
+\begin{itemize}
+  \item Construção do banco de dados;
+  \item Análises de resultados de candidaturas;
+  \item Análises de financiamento de campanha;
+\end{itemize}
+
+%--------------------------------------------------------------------------------
+\section{Organização da Monografia}
+
+O restante desta monografia está estruturado da seguinte maneira:
+
+\begin{itemize}
+
+  \item No Capítulo~\ref{chap:revisao} apresenta-se trabalhos que também abordam dados eleitorais. Além disso, discute-se sobre métodos e técnicas que são aplicados no trabalho, como técnicas para avaliar relações entre atributos de uma base de dados e técnicas de visualização de grafos. 
+
+  \item No Capítulo~\ref{chap:banco} detalha-se a construção do banco de dados. Explica-se as principais decisões de projeto tomadas e as abordagens adotadas. 
+
+  \item O Capítulo~\ref{chap:analises} é responsável por detalhar como os dados foram analisados e por apresentar os resultados obtidos.
+
+  \item Por fim, no Capítulo~\ref{chap:conclusao} há uma discussão dos resultados obtidos, assim como uma previsão de trabalhos futuros e limitações do trabalho atual. 
+
+\end{itemize}

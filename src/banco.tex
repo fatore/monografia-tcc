@@ -1,0 +1,242 @@
+\chapter{Criação do Banco de Dados}\label{chap:banco}
+
+Neste capítulo apresentamos como o banco de dados foi estruturado, bem como as fontes dos dados obtidos. O banco de dados se comporta como um centralizador de toda a informação adquirida esparsamente no repositório de dados. Em sua modelagem e implementação teve-se em mente que a síntese de informações de diferentes arquivos requeria muito esforço, assim à esta etapa reservou-se uma grande parcela do tempo de execução deste trabalho.
+
+\section{Levantamento dos Dados}\label{sec:setting}
+
+Os dados utilizados neste trabalho são provenientes do repositório de dados do TSE~\cite{www.tse-rep} (Tribunal Superior Eleitoral). O TSE é o órgão máximo da Justiça Eleitoral brasileira e atua em conjunto com os TREs (Tribunais Regionais Eleitorais), que são os responsáveis diretos pela administração do processo eleitoral dos respectivos estados e municípios os quais representam~\cite{www.tse}.
+
+O repositório de dados eleitorais é uma compilação de dados brutos das eleições desde 1994, voltada a pesquisadores, imprensa e cidadãos em geral que tenham interesse em analisar os dados de eleitorado, candidaturas, resultados e prestação de contas das eleições.
+
+Os dados são fornecidos como arquivos de texto formatados no padrão CSV~\cite{www.csv} (Comma Separated Values), que é um tipo de formatação muito utilizado devido à sua simplicidade. O conteúdo de cada arquivo é descrito por arquivos de ajuda. Nestes arquivos é comum o uso do termo "unidade eleitoral", a definição deste termo no caso de eleição majoritária é o estado em que o candidato concorre e em caso de eleição municipal é o código TSE do município.
+Assume-se os valores especiais BR, ZZ e VT para designar as unidades eleitorais correspondentes, respectivamente, ao Brasil, ao Exterior e a Voto em Trânsito.
+
+O TSE não se responsabiliza por qualquer consulta ou análise realizada sobre os dados, deste modo deve-se atentar para uma cuidadosa etapa de aquisição dos dados e buscar manter a consistência dos dados durante todo o decorrer do trabalho.
+
+Os arquivos do repositório estão organizados nas categorias eleitorado, candidatos, resultados e prestação de contas, como mostra a Figura~\ref{fig:rep-geral}. As subseções seguintes buscam detalhar o conteúdo de cada uma dessas categorias.
+
+\begin{figure}[htb]
+        \centering
+        \includegraphics[width=16cm]{images/rep-geral.png}
+        \caption{Visão geral do repositório de dados eleitorais.}
+        \label{fig:rep-geral}
+\end{figure}
+
+\subsection{Eleitorado}\label{sub:eleitorado}
+
+A categoria "eleitorado" contém arquivos com informações do perfil do eleitorado de cada eleição até o nível de zona eleitoral. Um município pode conter várias zonas eleitorais e o que este arquivo descreve é a quantidade de eleitores de um determinado perfil que pertencem à estas zonas. 
+
+Um perfil de eleitorado é definido pelos atributos sexo, faixa etária e grau de escolaridade. Deve-se ter em mente que o atributo grau escolaridade é declarado pelo eleitor, sendo que em muitos casos o eleitor se cadastra com um determinado grau de escolaridade, por exemplo: com ensino médio aos 16 anos de idade, e não volta ao cartório eleitoral para atualizar esta informação.
+
+\subsection{Candidatos}\label{sub:candidatos}
+
+Os dados pertencentes à categoria "candidatos" são subdivididos em informações de candidatura, bens dos candidatos, legendas políticas e vagas disponíveis, como mostra a Figura~\ref{fig:candidatos}.
+
+\begin{figure}[htb]
+        \centering
+        \includegraphics[width=16cm]{images/candidatos.png}
+        \caption{Organização dos arquivos de candidatos.}
+        \label{fig:candidatos}
+\end{figure}
+
+Os arquivos correspondentes às informações de candidatura são os mais extensos e também os mais importantes para as análises propostas por este trabalho. Eles contêm informações importantes sobre os candidatos, como por exemplo ocupação, sexo, idade, grau de escolaridade, estado civil e se o candidato foi eleito ou não ao término da eleição. Além disso, este arquivo contém informações sobre o cargo que o candidato está concorrendo e a qual partido político e coligação ele pertence.
+
+No momento da candidatura os candidatos são obrigados a preencher um formulário de declaração de bens e valores em cumprimento ao Artigo 13 da Lei n$^o$ 8.429 \cite{Lei8429}. O repositório de dados do TSE disponibiliza os conteúdos desses formulários. Para cada item declarado por um candidato há uma descrição, o valor e o tipo do item.
+
+De acordo com o arquivo de ajuda do repositório de dados do TSE, uma legenda política pode ser constituída por um ou mais partidos políticos. Além disso, diferentes legendas podem ser formadas em diferentes unidades eleitorais do país e também para diferentes cargos.
+
+Os arquivos de vagas disponíveis são os mais simples da categoria "candidatos" e descrevem para cada unidade eleitoral a quantidade de vagas disponíveis para cada cargo. 
+
+\subsection{Resultados}\label{sub:resultados}
+
+O repositório de dados disponibiliza os resultados das eleições por meio de duas categorias: votos totalizados e boletins de urnas. A organização completa desses arquivos pode ser observada na Figura~\ref{fig:resultados}.
+
+\begin{figure}[htb]
+        \centering
+        \includegraphics[width=16cm]{images/resultados.png}
+        \caption{Organização dos arquivos de resultados de eleições.}
+        \label{fig:resultados}
+\end{figure}
+
+Os votos totalizados são o resultado do trabalho realizado pelo sistema de apuração, ou sistema de totalização. Para cada candidato é informado o número de votos obtidos em cada zona eleitoral de cada município. A mesma informação é disponibilizada para cada partido político.
+
+Os boletins de urna são os dados coletados pelas seções eleitorais. Pode-se ainda dividir esses boletins em duas categorias: detalhes de apuração e votos. Os detalhes de apuração descrevem para zonas eleitorais e para seções eleitorais uma série de informações em relação a uma determinada eleição. Esses detalhes informam o comparecimento e as abstenções dos eleitores e o número de votos válidos, nulos, em branco e em legenda. Por meio dos boletins de votos realiza-se a apuração de uma eleição. Este tipo de boletim revela quantos votos um candidato de um determinado partido obteve em cada seção eleitoral.
+
+\subsection{Prestação de Contas}\label{sub:resultados}
+
+Os arquivos de prestação de contas descrevem as receitas e despesas de campanha dos candidatos, partidos e comitês. As prestações de contas estão disponíveis em meio digital somente a partir de 2002.
+
+O TSE não faz menção aos arquivos de prestação de contas em seu arquivo de ajuda. Existe, na verdade, para cada eleição um arquivo específico que descreve como a informação de prestação contas se encontra para aquela eleição particularmente. A falta de uma especificação geral para esses dados resulta em uma maior complexidade no tratamento desses dados, pois a ordem e, em alguns casos, até mesmo a existência de determinados campos varia de eleição para eleição.
+
+De modo geral, o repositório de dados disponibiliza os valores e pessoas (ou empresas) envolvidos em cada receita e despesa dos candidatos, partidos e comitês. Para doadores e fornecedores têm-se por exemplo os seus nomes e os números do CPF, ou CNPJ tratando-se de uma empresa.
+
+\section{Seleção dos Dados}\label{sec:db-selection}
+
+% PRECISO JUSTIFICAR MELHOR PORQUE FORAM ESCOLHIDAS ESSAS CATEGORIAS ?% 
+
+O levantamento dos dados, descrito na seção anterior, permite definir quais dados são relevantes para as análises propostas. A tarefa de seleção dos dados também é necessária, pois não é possível trabalhar com todos os dados do repositório de dados no cronograma estipulado. Assim, com o intuito de manter o trabalho dentro do escopo definido, selecionou-se apenas dados das categorias "candidatos" e "prestação de contas".
+
+Dentro da categoria "candidatos" escolheu-se utilizar as informações de vagas disponíveis, candidaturas e bens de candidatos, pois tratam-se dos dados mais diretamente relacionados às análises propostas. Para a categoria "prestação de contas" apenas os gastos e receitas de candidatos foram considerados.
+
+Verificou-se que para eleições anteriores à 2006 algumas informações essenciais, como número do título de eleitor do candidato, não constavam para todas entradas. Então, decidiu-se trabalhar somente com os dados de 2006 até 2012.
+
+\section{Implementação do Banco de Dados}\label{sec:db-creation}
+
+Optou-se por dividir a etapa de criação do banco de dados em módulos que são detalhados nas subseções seguintes. Assim, tanto a implementação quanto a descrição do trabalho realizado podem ser melhor compreendidos.
+
+\subsection{Tratamento de Ambiguidade entre Palavras}\label{sub:desamb}
+
+Um problema frequente na implementação deste trabalho foi a questão da ambiguidade entre palavras. Em diversas situações não foi trivial avaliar se duas cadeias de texto representavam a mesma entidade. Por exemplo, no processamento dos nomes de cidades verificou-se que uma mesma cidade era escrita de diferentes maneiras.
+
+Encontrar todas as situações onde este problema ocorre é tarefa difícil. No entanto, algo mais tangível é identificar os casos onde o problema é causado por pequenas divergências na grafia. 
+
+Neste trabalho utilizou-se a Distância de Levenshtein~\cite{EditDist}, conhecida também como Distância de Edição, para encontrar pequenas divergências de grafia entre palavras. Esta distância pode ser entendida como \textit{``o número de inserções, remoções e substituições necessárias para que duas strings sejam iguais''}~\cite{Navarro2001}. 
+
+Durante o processamento de nomes e outros casos onde era necessário verificar a ambiguidade entre palavras, estabeleceu-se que \textit{strings} com distância menor ou igual a 3, resultam na mesma entidade. Apesar de alguns problemas que isso possa ocasionar, o resultado é melhor do que usar os dados originais.
+
+
+\subsection{Dados de Localidade}\label{subs:local}
+
+Uma informação que é recorrente em praticamente todos os arquivos do repositório de dados trata-se da localização de determinado acontecimento, por exemplo, o local onde um candidato concorre a um determinado cargo, ou o seu local de nascimento. Essa informação representa um dado valioso para as análises propostas, pois sua disponibilidade viabiliza análises sobre tendências geográficas.
+
+No entanto, existe um problema no tratamento dessa informação. O repositório do TSE utiliza um código gerado internamente para identificar os municípios. Esse código não apresenta relação com outros sistemas do governo, assim no caso de análises geográficas não é possível, por exemplo, utilizar dados do IBGE para determinar a localização de um município.
+
+A solução para contornar essa questão foi encontrada em um recurso criado pelo Departamento de Informática do SUS, o DATASUS~\cite{www.datasus}. Este recurso é um trabalho que tem como objetivo o aprimoramento da gestão do sistema de saúde nacional. 
+Apesar de se tratar de um recurso voltado para a saúde, esse sistema apresenta uma  rica base de dados com arquivos de diversas categorias, incluindo uma categoria de unidades territoriais. 
+
+As tabelas do DATASUS relacionadas à unidades territoriais apresentam uma hierarquia completa de níveis de detalhamento geográfico que possibilitam trabalhar desde regiões nacionais até distritos de um município, como pode ser observado na Figura~\ref{fig:datasus-ut}. 
+
+\begin{figure}[htb]
+  \centering
+  \includegraphics[width=8cm]{images/datasus-ut.pdf}
+  \caption[Hierarquia dos dados geográficos do DATASUS.]{Hierarquia dos níveis de detalhamento geográfico dos dados de unidades territoriais do DATASUS.}
+  \label{fig:datasus-ut}
+\end{figure}
+
+Para cada município tem-se sua localização geográfica com base em sua latitude e longitude. Além disso, o sistema mantém códigos em suas tabelas que possibilitam a comunicação com outros sistemas do governo, inclusive com o IBGE. 
+
+A proposta deste módulo é processar os dados do SUS e permitir que em processamentos futuros seja possível estabelecer uma relação entre os dados de localidade encontrados no repositório do TSE e os dados do SUS. Para estabelecer essa relação bastaria utilizar o nome da cidade e seu estado, já que o nome da cidade é único para um estado.
+
+Os dados do DATASUS estão no formato dBase e podem ser baixados livremente e importados por diversos softwares que suportam este formato. Os arquivos se encontram na codificação DOS/850 e esta deve ser levada em conta ao se realizar a importação dos arquivos. Este trabalho utilizou a ferramenta livre LibreOffice~\cite{www.lbo} para converter os arquivos dBase para o formato CSV e assim posteriormente processá-los juntamente com os dados do TSE.
+
+Desenvolveu-se um processador responsável por carregar os arquivos sobre unidades territoriais do DATASUS no banco de dados. Esta tarefa resume-se a interpretar cada campo do arquivo CSV em um atributo de uma nova tabela no banco de dados. O resultado deste processamento é apresentado na Figura~\ref{fig:locations-db}.
+
+\begin{figure}[htb]
+  \centering
+  \includegraphics[width=15cm]{images/locations-db.png}
+  \caption[Resultado do processamento dos dados de unidades territoriais.]{Resultado do processamento dos dados de unidades territoriais. Diagrama construído pela ferramenta \textit{SchemaSpy}~\cite{www.schemaspy}}
+  \label{fig:locations-db}
+\end{figure}
+
+A tabela de regiões contém 6 entradas (\textit{rows}), 1 que designa região ignorada ou no exterior e 5 que representam as macrorregiões nacionais. Uma região contém um ou mais estados. 
+
+Ao todo a tabela de estados contém 28 entradas, sendo elas:
+
+\begin{itemize}
+  \item 26 Unidades Federativas;
+  \item Distrito Federal; e 
+  \item UF ignorada ou no exterior.
+\end{itemize}
+
+As tabelas de mesorregiões e microrregiões com 165 e 586 entradas, respectivamente, representam subdivisões dos estados que congregam diversos municípios de uma área geográfica com similaridades econômicas e sociais. Ambas foram criadas pelo IBGE para fins estatísticos e não constituem entidades políticas ou administrativas. 
+
+A tabela de cidades contém informações referentes a:
+
+\begin{itemize}
+  \item 5.565 Municípios em vigor, sendo 5.563 Municípios propriamente ditos, 1 Distrito Federal (Brasília) e 1 Distrito Estadual (Fernando de Noronha);
+  \item 60 Municípios transferidos de Goiás para Tocantins, quando da criação deste; estes códigos são válidos até 31/12/1988;
+  \item 1 Município extinto (Pinto Bandeira, no Rio Grande do Sul, reincorporado a Bento Gonçalves por decisão judicial); e
+  \item 27 Municípios ignorados, um para cada Unidade da Federação (exceto do Distrito Federal) e um correspondendo a UF ignorada ou no exterior.
+\end{itemize}
+
+Os demais níveis de detalhamento, como distritos de municípios, não foram processados pois estão fora do interesse deste trabalho.
+
+O processamento descrito nesta subseção estabelece uma base confiável de informações sobre as unidades territoriais do Brasil e servirá como referência no tratamento de todos atributos de localidade nos processamentos descritos nas subseções seguintes. 
+
+\subsection{Dados de Vagas Disponíveis}
+
+Os arquivos de vagas disponíveis contém informações sobre todas as eleições realizadas em todas unidades eleitorais. Assim, este arquivo possibilita não somente registrar o número de vagas para cada cargo como também criar a tabela eleição como mostra a Tabela~\ref{tab:election}. 
+
+\begin{table}[h!]
+  \centering
+  \caption{Atributos da tabela de eleições, resultante do processamento dos arquivos de vagas disponíveis.}
+  \begin{tabular}{|l|}
+    \hline
+    \multicolumn{1}{|c|}{\textbf{Atributos da Tabela Eleição}} \\
+    \hline
+    Ano \\
+    \hline
+    Descrição \\
+    \hline
+    Estado \\
+    \hline
+    Cidade \\
+    \hline
+    Cargo \\
+    \hline
+    Número de Vagas \\
+    \hline
+  \end{tabular}
+  \label{tab:election}
+\end{table}
+
+Durante o processamento dos arquivos de vagas detectou-se situações em que não havia uma correspondência entre os nomes de alguns municípios apresentados nos arquivos do TSE e os dados obtidos do SUS. Após uma análise minuciosa das ocorrências deste problema, encontrou-se os seguintes motivos e soluções para essas situações:
+
+\begin{itemize}
+  \item Em 24 dos casos o problema é causado por divergências na grafia dos nomes como em: ``Mogi Mirim'' e ``Moji Mirim''. Situações semelhantes ocorrem pelo uso do apostrofo em nomes como ``Santa Luzia D'Oeste''. O problema foi tratado pela abordagem descrita na Subseção~\ref{sub:desamb} e determinou-se a correspondência entre os nomes para todos os 21 casos.
+
+  \item 8 dos casos justificam-se por alterações nos nomes dos municípios, como por exemplo o município de ``Januário Cicco'' no Rio Grande do Norte que passou a se chamar ``Boa Saúde''. A solução adotada foi buscar para cada caso o nome antigo do município nos registros do IBGE~\cite{www.ibge}, conseguindo assim estabelecer a correspondência entre os nomes para esses casos.
+
+  \item Para 5 casos verificou-se que os municípios ainda não haviam sido instalados quando os dados do SUS/IBGE foram coletados. Por isso não constam na base de dados, tratam-se de casos como o município ``Paraíso das Águas'' no Mato Grosso do Sul. A única solução para esses casos foi armazená-los na base de dados mesmo sem uma referência com os dados do SUS/IBGE. Esses municípios não poderão ser utilizados nas análises propostas.
+
+\end{itemize}
+
+O processamento descrito nessa seção foi responsável por armazenar no banco de dados 22.484 eleições realizadas em 5.568 cidades no período de 2006 à 2012. Ao todo tem-se 123.841 cargos eletivos com as seguintes distribuições:
+
+\begin{itemize}
+  \item 2 presidentes;
+  \item 54 governadores;
+  \item 81 senadores;
+  \item 1.026 deputados federais;
+  \item 2.118 deputados estaduais (sendo 48 distritais);
+  \item 11.133 prefeitos; e
+  \item 109.427 vereadores;
+
+\end{itemize}
+
+A tabela de eleições foi utilizada na Subseção~\ref{sub:candidature} para definir em quais eleições os candidatos se inscreveram.
+
+\subsection{Dados de Candidatura}\label{sub:candidature}
+
+Verificou-se que o código utilizado pelo TSE não identifica univocamente um candidato. Logo, foi necessário utilizar outras informações dos candidatos, como nome, data de nascimento e número do título eleitoral, para identificá-los. 
+
+Durante o processamento dos nomes dos candidatos foram encontrados problemas semelhantes aos encontrados com os nomes de cidades. Isto é, devido à divergências na grafia, não era possível determinar se dois nomes divergentes pertenciam a uma mesma pessoa ou não. A mesma abordagem descrita na Subseção~\ref{sub:desamb} foi adotada para contornar este problema. No caso dos candidatos, é mais difícil avaliar o sucesso da abordagem adotada, pois existe uma maior variação entre nomes. Por exemplo, mulheres costumam alterar o sobrenome ao se casarem e identificar quando isso ocorre é um problema que foge do escopo deste trabalho. 
+
+Um problema ainda mais grave foi encontrado durante o processamento dos dados. O número do título de eleitor, que supostamente deveria ser único para cada cidadão, aparecia com duplicidade em alguns casos para pessoas de nomes completamente diferentes e, em alguns casos, com data de nascimento e sexo diferentes. Para situações como essa não há possibilidade de corrigir os dados, restando apenas marcar esses candidatos como defeituosos para serem descartados nas análises futuras. Ao todo foram cadastrados $662.124$ candidatos, sendo que $5.902$ ($0.89\%$) desse total apresentavam o mesmo número de título de eleitor.
+
+Uma candidatura é composta por um candidato em uma determinada eleição. Assim, além de identificar o candidato, é necessário identificar a eleição. Como todas eleições já foram processadas com os dados de vagas disponíveis, encontrar a qual eleição o candidato está concorrendo é uma tarefa simples.
+
+Assim, identificados candidato e eleição, têm-se a base de uma candidatura. O restante do trabalho consiste em registrar os dados relativos às candidaturas, como o partido com o qual o candidato concorre, algumas de suas informações pessoais naquela eleição, como estado civil, trabalho atual, idade, etc. 
+
+\subsection{Dados de Bens de Candidatos}
+
+Esta etapa do processamento tem como objetivo cadastrar os bens dos candidatos nas eleições. Teoricamente, esta tarefa não deveria ser muito complexa, pois como os arquivos de bens contém um código que identifica um candidato, bastaria buscar por esse código no banco de dados e encontrar o candidato do bem em questão. No entanto, como foi observado nos processamentos anteriores, o código fornecido pelo TSE não identifica univocamente um candidato.
+
+Por meio de análises observou-se que para um mesmo ano e para um mesmo estado, o código fornecido pelo TSE poderia ser utilizado para identificar um candidato. Porém, não existe nenhuma informação nos arquivos ou no portal do TSE que confirme essa observação. Tentou-se entrar em contato com o TSE por e-mail, mas não foram obtidas respostas.
+
+Para $1.607.161$ bens foi possível encontrar a qual candidato pertenciam. Porém, para $271.246$ bens não obtivemos correspondências. Acredita-se que o motivo dessas falhas de correspondência seja problemas com o código de identificação de candidatos gerado pelo TSE.
+
+
+\subsection{Dados de Prestação de Contas}
+
+Processar os dados de prestação de contas consiste em cadastrar receitas e gastos realizados pelos candidatos durante as eleições. Esta tarefa não é trivial, pois não existe uma padronização dos arquivos desta categoria, exigindo assim, um processamento distinto para os arquivos de cada ano. Além disso, não existe nenhum campo nos arquivos de prestação de contas que facilite a correspondência com os candidatos.
+
+O número de urna dos candidatos é um campo presente em todos arquivos de prestação de contas. Além disso, espera-se que para uma determinada eleição não existam dois candidatos com um mesmo número de urna. Assim, utiliza-se esse valor para estabelecer a relação de contas dos candidatos.
+
+O processamento dos dados de prestação de contas foi realizado somente para as eleições de 2006, 2008 e 2010, pois até a data de realização deste trabalho não haviam sido divulgados pelo TSE os dados relativos ao ano de 2012. 
+
+Registrou-se $1.663.227$ receitas provenientes de $704.918$ doadores, resultando no total de R\$5.975.640.000,00. O número de despesas registradas foi de $4.715.873$, as quais se deram por meio de $1.799.204$ diferentes fornecedores. A quantia total gasta pelos candidatos nessas eleições foi de R\$5.658.280.000,00, ou seja, um valor compatível com o dinheiro arrecadado em doações. 
+
+Teoricamente, o método utilizado para encontrar as doações e despesas dos candidatos deveria funcionar para todos os casos. No entanto, por motivos não conhecidos, $31.378$ doações (quantia de R\$68.543.100,00) estavam relacionadas a candidatos que não estavam cadastrados no banco de dados. O mesmo ocorreu para $71.402$ despesas (quantia de R\$66.583.100,00) realizadas por candidatos não existentes na base de dados.
+
+

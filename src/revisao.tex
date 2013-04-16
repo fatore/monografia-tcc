@@ -1,0 +1,82 @@
+\chapter{Revisão Bibliográfica}\label{chap:revisao}
+
+A revisão bibliográfica deste trabalho pode ser dividida em duas categorias de trabalhos. Primeiramente, apresenta-se os trabalhos com objetivos em comum, ou seja, a exploração de cenários eleitorais. Em segundo, apresenta-se técnicas e métodos que foram utilizados para a confecção deste trabalho.
+
+\section{Análise de cenários eleitorais}
+
+Existe na literatura alguns trabalhos na mesma vertente deste trabalho de conclusão de curso. \citet{Vieira2006}, por exemplo, utilizaram dados das eleições municipais de Portugal no ano de 1999 em uma comparação entre as técnicas de agrupamento hierárquico e as redes neurais de Kohonen, conhecidas como \textit{Self-Organizing Maps} (SOM)~\cite{Kohonen:2001:SM}. O resultado com ambos métodos mostrou a formação de três grupos: um apontando o Partido Socialista (PS) como partido mais votado, sendo este grupo bem maior que os demais; um grupo dominado por partidos de direita; e outro grupo que se concentra na região de Alentejo, sendo dominado por partidos de esquerda.
+
+Outro trabalho que pode ser mencionado é o de \citet{Carneiro2008}, o qual busca observar como as disputas eleitorais nos municípios são influenciadas pela disputa nas esferas estaduais e nacional. Entre as conclusões apresentadas neste trabalho, destacam-se: a votação para governador é a variável que causa maior efeito nas eleições de deputado federal e estadual; e a votação para prefeito é a que tem maior efeito para a eleição de vereadores. Os autores afirmam que é extremamente difícil a observação da organização partidária, devido à grande quantidade de municípios em que se encontram partidos políticos.
+
+Um último exemplo que vale ser citado é o de \citet{Gormley2008}, o qual busca analisar a influência de fatores sociais nos resultados eleitorais. Os autores utilizam modelos de mistura para evidenciar os grupos de votação no eleitorado irlandês das eleições presidenciais de 1997 e determinar as características nas preferências de votação desses blocos. Como resultado, os autores concluem que a idade e a satisfação com o governo determinam a formação dos grupos de votação no caso estudado.
+
+Esses trabalhos não tem como foco dados políticos brasileiros, e além disso, se mostraram falhos em suas análises. Por exemplo, \citet{Vieira2006} tiveram uma preocupação maior em comparar as técnicas utilizadas do que realmente fornecer um estudo proveitoso dos dados. \citet{Carneiro2008} por sua vez, esbarraram em uma questão de complexidade computacional ao avaliar os dados de eleições de diversos municípios. O trabalho aqui proposto, além de se centrar em dados políticos nacionais, tem por objetivo fornecer um melhor entendimento dos dados em si, não somente a confecção de novas técnicas e abordagens. 
+
+\section{Métodos Utilizados}
+
+\subsection{Informação Mútua}
+
+A informação mútua foi utilizada neste trabalho para avaliar as relações entre os atributos das bases de dados, pois trata-se de uma medida estatística que indica a dependência entre duas variáveis~\cite{Shannon2001}. Se as variáveis são independentes, a informação mutua entre elas é zero. Valores maiores indicam maior relação entre os atributos.
+
+Esta medida apresenta algumas vantagens sobre outras medidas de avaliação de dependência entre variáveis. A correlação, por exemplo, captura somente dependências lineares entre os dados, enquanto a informação mútua captura relações globais~\cite{Li1990}.
+
+Formalmente, a informação mútua entre duas variáveis $X$ e $Y$ pode ser definida para o caso discreto como \cite{Kraskov2004}:
+
+\begin{equation} 
+  I(X,Y)\approx I_{disc}(X,Y) =  \sum_{xy}p(x,y)\log\frac{p(x,y)}{p(x)p(y)},  
+\end{equation}
+
+\noindent onde $p(x,y)$ é a função de distribuição de probabilidade conjunta de $X$ e $Y$, e $p(x)$ $p(y)$ são as funções de probabilidade marginais de $X$ e $Y$ respectivamente.
+
+Esta formulação pode ser aplicada somente à variáveis discretas, assim todos os atributos contínuos exigem uma etapa de discretização. Neste trabalho, a discretização dos atributos contínuos foi realizada por meio do particionamento do espaço de amostragem em \emph{bins}. Assim, cada valor contínuo foi designado a um intervalo deste espaço particionado. Métodos mais adequados poderiam ser utilizados, como por exemplo o proposto por \citet{Darbellay1999}, mas devido à complexidade da implementação desses métodos e ao curto cronograma deste trabalho, optou-se por uma abordagem mais simples. 
+
+\subsection{Projeções Multidimensionais}
+
+Neste trabalho, projeções multidimensionais foram utilizadas para definir uma representação visual inicial para a relação de financiamento de campanha entre candidatos. Escolheu-se trabalhar com esse tipo de técnica, pois são capazes de mapear elementos pertencentes a um espaço de alta dimensão em espaços $p$-dimensionais, com $p = \{1, 2, 3\}$, preservando alguma informação sobre as relações de distâncias e de similaridade entre os dados~\cite{Engel}. Mais formalmente, uma técnica de projeção multidimensional pode ser definida como~\cite{Tejada2003a}:
+
+\begin{quote}
+  Seja $X$ um conjunto de objetos $R^m$ com $\delta$~:~$R^m \times R^m \rightarrow R$ um critério de proximidade entre dois objetos em $R^m$, e $Y$ um conjunto de objetos em $R^p$ para $p = \{1, 2, 3\}$ e $d:~R^p \times R^p \rightarrow R$ um critério de proximidade em $R^p$. Uma técnica de projeção multidimensional pode ser descrita como uma função $f : X \rightarrow Y$ que visa tornar $|\delta(x_i,x_j) - d(f(x_i),f(x_j))|$ o mais próximo possível de zero, $\forall x_i, x_j \in X$.
+\end{quote} 
+
+Em uma projeção bem construída, a proximidade dos pontos indica a semelhança entre os objetos que representam. Pontos próximos indicam instâncias semelhantes de acordo com a medida de distância $\delta$. Intuitivamente, pontos distantes representam objetos com pouca relação, também de acordo com $\delta$. Assim, a questão principal para a construção de uma projeção é a forma como as distâncias entre os objetos multidimensionais ($\delta$) é definida. 
+
+Dentre as várias técnicas de projeção que podem ser utilizadas, este trabalho escolheu a técnica \textit{Force Scheme} \cite{Tejada2003a}, pois ela propõe um balanceamento entre precisão e desempenho computacional. Essa técnica estabelece um sistema de forças, onde inicialmente posicionam-se os objetos de forma aleatória, ou por meio de alguma heurística, e forças de atração e repulsão entre os objetos levam o sistema a um estado de equilíbrio.
+
+Após o posicionamento inicial dos pontos, a técnica realiza iterações para aproximar as distâncias entre os objetos projetados e as distâncias $\delta$ entre os objetos no espaço original. Na primeira iteração, a técnica considera como conjunto de entrada, $Y$, a projeção definida na inicialização. Para cada ponto projetado $y_i \in Y$, calcula-se um vetor $v_{i,j} = (y_j - y_i), \forall y_j \neq y_i$. Move-se então $y_i$ na direção de $v$ uma fração $w$ de $\Delta$. Com $w$ dado por:
+
+\begin{equation}
+  w =  (1 + (2i + 1))^{\frac{1}{2i + 1}} - 1,
+  \label{eq:fraq}
+\end{equation} \\
+onde $i$ é o número de iterações realizadas até aquele momento.
+
+Ao término da iteração, cada objeto sofreu um deslocamento na direção de cada outro objeto, aproximando a distância entre os elementos no espaço projetado e a distância entre os elementos no espaço original. Iterações são repetidas sucessivamente até um número previamente estabelecido. Tanto a Equação~\ref{eq:fraq} como o número de iterações a serem realizadas foram definidos empiricamente.
+
+A Figura~\ref{fig:iris} apresenta um exemplo de uma projeção multidimensional para o conjunto de dados Iris~\cite{iris}. Este conjunto contém três classes, sendo que uma delas é mais distinta do que as outras. Pela projeção é possível observar essa característica, pois os pontos em azul se encontram mais bem separados do que os os pontos das duas outras classes que apresentam uma certa intersecção entre si. 
+
+\begin{figure}[h!]
+  \centering
+  \centering
+  \includegraphics[width=\textwidth]{images/iris-force.png}
+  \caption[Exemplo de projeção multidimensional.]{Exemplo de projeção multidimensional do conjunto Iris. A proximidade entre os pontos indica a semelhança entre os elementos que representam e a cor indica a classe dos elementos.}
+  \label{fig:iris}
+\end{figure}
+
+\subsection{Edge-Bundling}
+
+Neste trabalho, para análise do financiamento de campanha geramos grafos onde os nós representam candidatos e as arestas conectam candidatos que possuem doadores em comum. Devido ao grande número de arestas, as representações visuais geradas apresentam grande poluição visual que não permite uma análise efetiva dos resultados. A esta poluição é dado o nome \textit{clutter}. 
+
+Existem diversas técnicas que buscam reduzir o \textit{clutter} em grafos. Essas técnicas se dividem basicamente em duas categorias: simplificação de grafos~\cite{Abello2006,Archambault2008,Lambert2010}; e \textit{edge-bundling} \cite{Hurter2012,Selassie2011,Ersoy2011,Luo2012}. A primeira categoria possui técnicas que buscam reduzir a poluição visual em grafos ao agrupar nós e arestas fortemente conectadas. Estas técnicas apresentam certos problemas de parametrização e também podem alterar a posição dos nós ao realizar o agrupamento dos elementos. As técnicas da segunda categoria buscam agrupar arestas próximas em estruturas curvas, que permitem uma investigação dos nós sem o comprometimento de suas posições.
+
+Este trabalho utilizou técnicas pertencentes à segunda categoria, pois permitem encontrar grupos de nós que estão conectados a outros grupos de nós~\cite{Ersoy2011}, viabilizando a investigação de quais grupos de candidatos tem relações com outros grupos. Mais especificamente este trabalho utiliza \textit{Skeleton-Based Edge Bundling} (SBEB) \cite{Ersoy2011}  para a simplificação dos grafos. 
+
+A SBED apresenta grande flexibilidade em relação a definição de parâmetros e um bom desempenho computacional. A Figura~\ref{fig:eb} apresenta um exemplo da SDEB para um conjunto de dados arbitrário. Nota-se uma grande redução da poluição visual do layout inicial do grafo, possibilitando a detecção de padrões e tendências.  
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=\textwidth]{images/example-bundling.png}
+  \caption[Exemplo de \textit{Edge-Bundling}.]{Exemplo da técnica SDEB~\cite{Ersoy2011}. Em a) observa-se o layout inicial do grafo sem a aplicação da técnica. Em b) apresenta-se o resultado obtido pelo uso da técnica.}
+  \label{fig:eb}
+\end{figure}
+
+

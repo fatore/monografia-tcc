@@ -1,0 +1,152 @@
+\chapter{Análises dos Dados}\label{chap:analises}
+
+O banco de dados construído neste trabalho age como um centralizador de toda informação fornecida esparsamente pelo TSE. Assim, por meio de buscas nesse banco é possível encontrar diversas informações dos candidatos e das eleições em si. No entanto, para se obter uma melhor compreensão no cenário eleitoral brasileiro, não bastam buscas individuais. Este capítulo apresenta como é possível utilizar técnicas de diferentes campos de pesquisa para extrair informações de grandes conjuntos de dados.
+
+\section{Análise de Resultados de Candidaturas}
+
+Uma análise de interesse é investigar quais características dos candidatos são relevantes para o sucesso de suas campanhas. Com este objetivo em mente, construiu-se a Tabela~\ref{tab:cand-res} selecionando todos os atributos do banco de dados que podem ter alguma relação com os resultados das eleições. Dentre todos os atributos disponíveis, alguns foram ignorados desta seleção inicial. A nacionalidade do candidato não foi considerada, pois praticamente todos os candidatos são brasileiros. O valor máximo estipulado para gastos se mostrou nulo para muitos candidatos. Nas eleições de 2006, por exemplo, este campo não foi preenchido por nenhum candidato, logo desconsiderou-se esta informação. 
+
+A coligação do candidato não foi considerada pois trata-se de um atributo desbalanceado, isto é, a cada ano eleitoral milhares de coligações são formadas e as anteriores terminadas. Este problema de desbalanceamento afeta também as cidades natal dos candidatos, logo esta informação também foi excluída das análises.
+
+Uma análise estatística dos dados revelou que existe uma correlação positiva de valor $0.99$ entre o total de despesas e total de receitas. Sabendo que o valor de correlação máximo entre duas variáveis é de 1, a relação entre os dois atributos é praticamente perfeita. Logo, não há a necessidade de utilizar ambos atributos nas análises. Manteve-se apenas o total de despesas realizadas pelos candidatos nas campanhas.   
+
+Além de atributos, alguns itens (candidatos) foram ignorados na análise, por exemplo, os que apresentavam valores nulos para o total gasto na campanha e também para o total de doações recebidas. Considerou-se que tais itens não devem ser processados, pois não refletem candidatos realmente comprometidos às suas campanhas.
+
+Uma última questão sobre os dados deve ser comentada. Até a execução deste trabalho não se encontrava disponível os dados de prestação de contas relativos às eleições de 2012. Assim as eleições deste ano foram ignoradas de algumas das análises realizadas.
+
+\begin{table}[h]
+  \centering
+  \caption{Atributos dos candidatos que podem ter relação com os resultados das eleições.}
+  \begin{tabular}{|l|l|}
+    \hline
+    \multicolumn{1}{|c|}{\textbf{Atributos de Interesse}} \\
+    \hline
+    Valor total de despesas  \\
+    \hline
+    Valor total de bens próprios \\
+    \hline  
+    Sexo  \\
+    \hline
+    Estado de nascimento  \\
+    \hline
+    Idade na eleição   \\
+    \hline
+    Ocupação atual  \\
+    \hline
+    Escolaridade  \\
+    \hline   
+    Estado civil  \\
+    \hline
+    Partido  \\
+    \hline
+    Resultado da eleição  \\
+    \hline  
+  \end{tabular}
+  \label{tab:cand-res}
+\end{table}
+
+É pouco provável que todos os atributos influenciem os resultados das eleições da mesma maneira. Assim, para se ter uma visão geral sobre a relação entre os atributos, construiu-se uma matriz de informação mútua, discutida com mais detalhes no Capítulo~\ref{chap:revisao}, para os anos eleitorais de 2006, 2008 e 2010. Trata-se de uma matriz $p$ x $p$, onde $p$ indica o número de atributos e que $m(i,j)$ indica a informação mútua do atributo $i$ com o atributo $j$. A Figura~\ref{fig:mi1} apresenta esta matriz.
+
+\begin{figure}[h!]
+  \centering
+  \centering
+  \includegraphics[width=\textwidth]{images/mim-all-text-lower.pdf}
+  \caption[Matriz de informação mútua.]{Matriz de informação mútua entre os atributos para os anos de 2006, 2008 e 2010. Valores maiores indicam maior relação entre os atributos.}
+  \label{fig:mi1}
+\end{figure}
+
+Nota-se algumas relações entre os atributos. Por exemplo, a profissão do candidato apresenta forte relação com seu nível de escolaridade e uma relação mais moderada com vários outros atributos. Porém, neste nível de detalhe não é possível identificar relações com os resultados das eleições. Mas observando a Figura~\ref{fig:bar1}, onde apresenta-se somente as relações com os resultados das eleições, nota-se algumas tendências.
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=\textwidth]{images/bar-all-inc.pdf}
+  \caption[Informação mútua dos atributos em relação aos resultados das eleições.]{Informação mútua de todos os atributos em relação aos resultados das eleições de 2006, 2008 e 2010. Valores maiores indicam maior relação com o resultado.}
+  \label{fig:bar1}
+\end{figure}
+
+Observa-se que o total de despesas juntamente com a profissão dos candidatos são os atributos que mais influenciam o resultado. O montante de bens próprios apresenta influência significativa, seguido pelo partido do candidato. 
+
+Essas observações podem ser verificados estatisticamente. Nas eleições de 2010, por exemplo, cada candidato eleito gastou em média R\$$950.185,00$ em suas campanhas, enquanto os candidatos não eleitos gastaram em média R\$$119.584,60 $ cada. Encontra-se tendência semelhante para os bens dos candidatos, sendo que os eleitos possuem em média R\$$1.673.477,00$ e os não eleitos R\$$399.175,00$. Essa relação não surpreende, pois um candidato com um melhor orçamento têm maior visibilidade e é capaz de divulgar suas propostas a um número maior de eleitores.
+
+Em relação a profissão dos candidatos, para as eleições realizadas em 2010, dos $1.644$ candidatos eleitos $708$ ocupavam o cargo de deputado quando se candidataram. Para aquele ano, a probabilidade de um candidato ser eleito, dado que ele ocupa um cargo de deputado, era de $69.34\%$. É provável que este fato ocorra pela possibilidade de reeleição no cargo. Além disso, um candidato que já se encontra envolvido com política, logicamente, deve ter melhores condições de alcançar sucesso em novas eleições.
+
+Um atributo que pode chamar a atenção é a escolaridade do candidato. No Capítulo~\ref{chap:banco} comentou-se sobre a observação do repositório do TSE, a qual informava que a escolaridade de um candidato era obtida pelo documento de título de eleitor. Assim, em muitos casos uma pessoa se registra com um nível de escolaridade e jamais volta ao cartório eleitoral para atualizar suas informações. Se houvesse garantias de que os dados dos candidatos são fiéis à realidade, seria possível afirmar que o eleitorado não se preocupa com a escolaridade dos candidatos ao escolherem seus representantes.
+
+Alguns dos resultados apresentados até aqui apenas confirmam o esperado pelo senso comum. Ou seja, candidatos com orçamentos maiores tendem à obter melhores resultados em suas campanhas. O mesmo acontece com candidatos que já se encontram envolvidos com política. Na próxima seção serão apresentados resultados que buscam extrapolar o senso comum ao avaliar como os candidatos se relacionam no aspecto de financiamento de campanha.
+
+\section{Análise de Financiamento de Campanha}\label{sec:found}
+
+Como foi visto na seção anterior, o orçamento de um candidato reflete diretamente no sucesso de sua campanha. Assim, esta seção tem como objetivo investigar a origem das receitas dos candidatos, ou seja, explorar relações de financiamento de campanha.
+
+Aqui, trabalha-se com a hipótese que candidatos de partidos diferentes deveriam, em grande parte, receber contribuições de doadores distintos ao longo de suas campanhas. Isto é, um candidato do PT, por exemplo, deveria ter poucos doadores em comum com candidatos do PSDB, já que o modelo nacional de eleição preconiza o apoio dos partidos a certas áreas da sociedade. A confirmação ou negação deste tipo de especulação pode incitar novos estudos sobre a dinâmica do cenário eleitoral brasileiro.
+
+Para este tipo de analise foi necessária a construção de um grafo, onde os nós representam candidatos e as arestas ligam candidatos com doadores em comum. Existem diversas técnicas para desenho de grafos~\cite{Tollis1998}, porém neste trabalho uma abordagem diferente foi escolhida. O posicionamento dos nós foi realizado por meio da técnica de projeção multidimensional \textit{Force Scheme}~\cite{Tejada2003}, discutida com mais detalhes no Capítulo~\ref{chap:revisao}. Adotou-se esta abordagem, pois projeções multidimensionais permitem construir representações que utilizam a similaridade entre os elementos como critério para posicionamento dos pontos.
+
+Uma questão fundamental para a construção de uma projeção multidimensional é a maneira como se define o cálculo da distância entre elementos. Como o intuito da análise é verificar possíveis relações entre candidatos de diferentes partidos, utilizou-se o partido do candidato como critério da medida de distância. Além disso, considerou-se o total de receitas recebidas pelo candidato como segundo fator no cálculo da distância entre os candidatos. 
+
+A Figura~\ref{fig:initial-proj} apresenta o posicionamento dos nós, resultante da projeção multidimensional, para os dados referentes ás eleições ao cargo de governador realizadas em todo o Brasil no ano de 2010. Cada círculo indica um candidato, sendo que a cor indica o partido do candidato e o diâmetro é proporcional ao valor total de doações recebidas pelo candidato naquela eleição. Como o número de partidos é maior do que o número de cores distintas, utilizou-se também um rótulo para auxilar as análises. Com base nesta figura é possível distinguir candidatos com maiores arrecadações e partidos com maior número de candidatos para a eleição.
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=\textwidth]{images/initial-proj.png}
+  \caption[Posicionamento inicial dos pontos.]{Posicionamento dos nós para os dados referentes ás eleições ao cargo de governador realizadas em todo o Brasil no ano de 2010. Cada círculo indica um candidato, sendo que a cor indica o partido do candidato e o diâmetro é proporcional ao valor total de doações recebidas pelo candidato naquela eleição.}
+  \label{fig:initial-proj}
+\end{figure}
+
+Uma vez posicionados os nós, basta desenhar as arestas que ligam candidatos com doadores em comum para construir a representação visual do grafo. A Figura~\ref{fig:initial-edges} apresenta tal representação. A grande quantidade de conexões entre os candidatos impossibilita uma análise efetiva do resultado, como por exemplo, distinguir a origem e destino de conjuntos de arestas.
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=\textwidth]{images/initial-edges.png}
+  \caption[Grafo dos candidatos com doadores em comum.]{Grafo dos candidatos com doadores em comum. Círculos que se encontram conectados por retas representam candidatos com doadores em comum.}
+  \label{fig:initial-edges}
+\end{figure}
+
+Para contornar o problema da poluição visual, aplicou-se a técnica de \textit{edge-bundling} SBEB, detalhada no Capítulo~\ref{chap:revisao}. O resultado obtido pode ser observado na Figura~\ref{fig:initial-bund}. Utilizou-se a transparência das arestas para representar a quantidade de dinheiro envolvida nas doações em comum. Assim, quanto maior a quantia envolvida na relação entre dois candidatos, maior é o nível de opacidade da aresta.
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=\textwidth]{images/initial-bund.png}
+  \caption[Grafo simplificado.]{Simplificação do grafo apresentado na Figura~\ref{fig:initial-edges}.}
+  \label{fig:initial-bund}
+\end{figure}
+
+Com base nos resultados da Figura~\ref{fig:initial-bund} é possível identificar algumas regiões de interesse do grafo. Observa-se, por exemplo, que candidatos do PT e PSDB apresentam uma grande quantidade de doadores em comum. Esta relação é curiosa, pois, a princípio, apresentariam posições diametralmente opostas no cenário político nacional, portanto possuem interesses que deveriam ser diferentes. Alguns partidos que se encontram na região central como PPS e DEM acabam dificultando as análises, pois deixam dúvidas em relação a origem e destino de algumas arestas.
+
+Uma característica do uso de técnicas de visualização é que o usuário tem a possibilidade de interação. Ele pode utilizar o seu conhecimento sobre domínio para gerar representações mais significativas. Um tipo de interação pode ser realizada sobre os resultados anteriores para evitar a sobreposição de nós e arestas.
+
+A Figura~\ref{fig:man-proj} apresenta o resultado de uma manipulação sobre a projeção multidimensional apresentada na Figura~\ref{fig:initial-proj}. Arrastou-se os grupos de candidatos que se encontravam no centro para as bordas, de modo a organizar todos os grupos sobre uma circunferência. Assim, evita-se grande parte dos obstáculos entre as arestas, como pode ser observado na Figura~\ref{fig:man-edges}. 
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=\textwidth]{images/man-proj.png}
+  \caption[Manipulação sobre a projeção multidimensional.]{Manipulação sobre a projeção multidimensional apresentada na Figura~\ref{fig:initial-proj}.}
+  \label{fig:man-proj}
+\end{figure}
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=\textwidth]{images/man-bund.png}
+  \caption[Grafo simplificado após a manipulação.]{Grafo simplificado após a manipulação da projeção multidimensional.}
+  \label{fig:man-edges}
+\end{figure}
+
+Em busca de verificar a relação encontrada nas análises, realizou-se outra forma de interação. Destacou-se as arestas que partem de um determinado conjunto de nós. As Figuras~\ref{fig:pt} e \ref{fig:psdb} apresentam destaques para os candidatos do PT e do PSDB, respectivamente. 
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=\textwidth]{images/pt.png}
+  \caption[Destaques dos doadores em comum para o partido PT]{Destaque para os candidatos do partido PT que possuem doadores em comum com candidatos de outros partidos.}
+  \label{fig:pt}
+\end{figure}
+
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=\textwidth]{images/psdb.png}
+  \caption[Destaques dos doadores em comum para o partido PSDB]{Destaque para os candidatos do partido PSDB que possuem doadores em comum com candidatos de outros partidos.}
+  \label{fig:psdb}
+\end{figure}
+
+Para os dados analisados, os partidos com maior número de candidatos, como PT, PSDB, PMDB e PSB apresentam um grande número de doadores em comum. Este fato implica que mesmo com a concorrência entre partidos, suas ideologias e propostas pouco influenciam os interesses dos financiadores.
+

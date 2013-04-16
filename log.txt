@@ -1,0 +1,697 @@
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Arch Linux)
+ restricted \write18 enabled.
+entering extended mode
+(./src/document.tex
+LaTeX2e <2011/06/27>
+Babel <v3.8m> and hyphenation patterns for english, dumylang, nohyphenation, ge
+rman-x-2012-05-30, ngerman-x-2012-05-30, afrikaans, ancientgreek, ibycus, arabi
+c, armenian, basque, bulgarian, catalan, pinyin, coptic, croatian, czech, danis
+h, dutch, ukenglish, usenglishmax, esperanto, estonian, ethiopic, farsi, finnis
+h, french, friulan, galician, german, ngerman, swissgerman, monogreek, greek, h
+ungarian, icelandic, assamese, bengali, gujarati, hindi, kannada, malayalam, ma
+rathi, oriya, panjabi, tamil, telugu, indonesian, interlingua, irish, italian, 
+kurmanji, latin, latvian, lithuanian, mongolian, mongolianlmc, bokmal, nynorsk,
+ polish, portuguese, romanian, romansh, russian, sanskrit, serbian, serbianc, s
+lovak, slovenian, spanish, swedish, turkish, turkmen, ukrainian, uppersorbian, 
+welsh, loaded.
+(./icmc.cls
+Document Class: icmc 2000/12/07 v1.0a ICMC document class
+(/usr/share/texmf-dist/tex/latex/base/bk11.clo)
+(/usr/share/texmf-dist/tex/latex/caption/caption.sty
+(/usr/share/texmf-dist/tex/latex/caption/caption3.sty
+(/usr/share/texmf-dist/tex/latex/graphics/keyval.sty)))
+(/usr/share/texmf-dist/tex/latex/titlesec/titlesec.sty)
+(/usr/share/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty)
+(/usr/share/texmf-dist/tex/latex/float/float.sty))
+(/usr/share/texmf-dist/tex/latex/geometry/geometry.sty
+(/usr/share/texmf-dist/tex/generic/oberdiek/ifpdf.sty)
+(/usr/share/texmf-dist/tex/generic/oberdiek/ifvtex.sty)
+(/usr/share/texmf-dist/tex/generic/ifxetex/ifxetex.sty))
+(/usr/share/texmf-dist/tex/latex/mdwtools/syntax.sty)
+(/usr/share/texmf-dist/tex/latex/ae/ae.sty
+(/usr/share/texmf-dist/tex/latex/base/fontenc.sty
+(/usr/share/texmf-dist/tex/latex/base/t1enc.def)
+(/usr/share/texmf-dist/tex/latex/ae/t1aer.fd)))
+(/usr/share/texmf-dist/tex/latex/amsfonts/amssymb.sty
+(/usr/share/texmf-dist/tex/latex/amsfonts/amsfonts.sty))
+(/usr/share/texmf-dist/tex/latex/setspace/setspace.sty)
+(/usr/share/texmf-dist/tex/generic/babel/babel.sty
+(/usr/share/texmf-dist/tex/generic/babel/portuges.ldf
+(/usr/share/texmf-dist/tex/generic/babel/babel.def)))
+(/usr/share/texmf-dist/tex/latex/base/ifthen.sty)
+(/usr/share/texmf-dist/tex/latex/tools/indentfirst.sty)
+(/usr/share/texmf-dist/tex/latex/tools/longtable.sty)
+(/usr/share/texmf-dist/tex/latex/tools/tabularx.sty
+(/usr/share/texmf-dist/tex/latex/tools/array.sty))
+(/usr/share/texmf-dist/tex/latex/graphics/graphicx.sty
+(/usr/share/texmf-dist/tex/latex/graphics/graphics.sty
+(/usr/share/texmf-dist/tex/latex/graphics/trig.sty)
+(/usr/share/texmf-dist/tex/latex/latexconfig/graphics.cfg)
+(/usr/share/texmf-dist/tex/latex/graphics/dvips.def)))
+(/usr/share/texmf-dist/tex/latex/caption/subcaption.sty)
+(/usr/share/texmf-dist/tex/latex/biblatex/biblatex.sty
+
+Package biblatex Warning: No "backend" specified, using Biber backend.
+(biblatex)                To use BibTeX, load biblatex with 
+(biblatex)                the "backend=bibtex" option.
+
+(/usr/share/texmf-dist/tex/latex/biblatex/biblatex2.sty
+(/usr/share/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+(/usr/share/texmf-dist/tex/latex/etex-pkg/etex.sty))
+(/usr/share/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+(/usr/share/texmf-dist/tex/generic/oberdiek/ltxcmds.sty)
+(/usr/share/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
+(/usr/share/texmf-dist/tex/generic/oberdiek/infwarerr.sty)
+(/usr/share/texmf-dist/tex/generic/oberdiek/etexcmds.sty
+(/usr/share/texmf-dist/tex/generic/oberdiek/ifluatex.sty))))
+(/usr/share/texmf-dist/tex/latex/logreq/logreq.sty
+(/usr/share/texmf-dist/tex/latex/logreq/logreq.def))
+(/usr/share/texmf-dist/tex/latex/url/url.sty)
+(/usr/share/texmf-dist/tex/latex/biblatex/blx-dm.def)
+(/usr/share/texmf-dist/tex/latex/biblatex/blx-compat.def)
+(/usr/share/texmf-dist/tex/latex/biblatex/biblatex.def)
+(/usr/share/texmf-dist/tex/latex/biblatex/blx-natbib.def)
+(/usr/share/texmf-dist/tex/latex/biblatex/bbx/numeric.bbx
+(/usr/share/texmf-dist/tex/latex/biblatex/bbx/standard.bbx))
+(/usr/share/texmf-dist/tex/latex/biblatex/cbx/numeric.cbx)
+(/usr/share/texmf-dist/tex/latex/biblatex/biblatex.cfg)))
+(/usr/share/texmf-dist/tex/latex/tools/verbatim.sty)
+(/usr/share/texmf-dist/tex/latex/tools/enumerate.sty)
+(/usr/share/texmf-dist/tex/latex/colortbl/colortbl.sty
+(/usr/share/texmf-dist/tex/latex/graphics/color.sty
+(/usr/share/texmf-dist/tex/latex/latexconfig/color.cfg)
+(/usr/share/texmf-dist/tex/latex/pdftex-def/pdftex.def)))
+(/usr/share/texmf-dist/tex/latex/textfit/textfit.sty)
+(/usr/share/texmf-dist/tex/latex/wrapfig/wrapfig.sty)
+(/usr/share/texmf-dist/tex/latex/natbib/bibentry.sty) (./hlundef.sty)
+(./slashbox.sty
+slashbox style by K.Yasuoka, May 1993.
+) (/usr/share/texmf-dist/tex/latex/multirow/multirow.sty)
+(/usr/share/texmf-dist/tex/latex/tocbibind/tocbibind.sty
+
+Package tocbibind Note: Using chapter style headings, unless overridden.
+
+) (./fancychap.sty) (/usr/share/texmf-dist/tex/latex/hyperref/hyperref.sty
+(/usr/share/texmf-dist/tex/generic/oberdiek/hobsub-hyperref.sty
+(/usr/share/texmf-dist/tex/generic/oberdiek/hobsub-generic.sty))
+(/usr/share/texmf-dist/tex/latex/oberdiek/auxhook.sty)
+(/usr/share/texmf-dist/tex/latex/hyperref/pd1enc.def)
+(/usr/share/texmf-dist/tex/latex/latexconfig/hyperref.cfg))
+
+Package hyperref Message: Driver (autodetected): hpdftex.
+
+(/usr/share/texmf-dist/tex/latex/hyperref/hpdftex.def
+(/usr/share/texmf-dist/tex/latex/oberdiek/rerunfilecheck.sty))
+(/usr/share/texmf-dist/tex/latex/biblatex/lbx/brazil.lbx
+(/usr/share/texmf-dist/tex/latex/biblatex/lbx/brazilian.lbx))
+
+Package biblatex Warning: 'babel' detected but 'csquotes' missing.
+(biblatex)                Loading 'csquotes' recommended.
+
+No file document.aux.
+(/usr/share/texmf-dist/tex/latex/caption/ltcaption.sty)
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+(/usr/share/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+(/usr/share/texmf-dist/tex/latex/oberdiek/grfext.sty)
+(/usr/share/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg))
+No file document.bbl.
+(/usr/share/texmf-dist/tex/context/base/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+) (/usr/share/texmf-dist/tex/latex/hyperref/nameref.sty
+(/usr/share/texmf-dist/tex/generic/oberdiek/gettitlestring.sty))
+(/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd)
+(/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd)
+Underfull \hbox (badness 1028) in paragraph at lines 94--94
+\T1/aer/m/n/10.95 tí-tulo de Ba-cha-rel na Área de Ci-ên-cias de
+[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] (./src/resumo.tex
+(/usr/share/texmf-dist/tex/latex/ae/t1aess.fd)) [1] [2] [3] [4] [5] [6]
+(./src/intro.tex
+Cap\'{\i }tulo 1.
+
+LaTeX Font Warning: Font shape `T1/aess/m/sc' undefined
+(Font)              using `T1/aess/m/n' instead on input line 1.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1--1
+
+
+document.tex:10: LaTeX Warning: Citation 'google-dm' on page 1 undefined on inp
+ut line 10.
+
+document.tex:10:Warning: Referência não definida
+
+Overfull \hbox (82.30553pt too wide) in paragraph at lines 10--11
+\T1/aer/m/n/10.95 pu-bli-ci-dade di-re-ci-o-nada aos seus cli-en-tes [[][]
+(/usr/share/texmf-dist/tex/latex/ae/t1aett.fd)
+
+document.tex:15: LaTeX Warning: Citation 'decreto-15-09-11' on page 1 undefined
+ on input line 15.
+
+
+document.tex:15: LaTeX Warning: Citation 'lei-12527' on page 1 undefined on inp
+ut line 15.
+
+pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
+been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.16 
+      [1]
+
+document.tex:23: LaTeX Warning: Citation 'lei-12527' on page 2 undefined on inp
+ut line 23.
+
+pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has 
+been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.35 
+      [2] (/usr/share/texmf/tex/latex/omsaer.fd)
+document.tex:51:Warning: Referência não definida
+
+document.tex:51: LaTeX Warning: Reference `chap:revisao' on page 3 undefined on
+ input line 51.
+
+document.tex:53:Warning: Referência não definida
+
+document.tex:53: LaTeX Warning: Reference `chap:banco' on page 3 undefined on i
+nput line 53.
+
+document.tex:55:Warning: Referência não definida
+
+document.tex:55: LaTeX Warning: Reference `chap:analises' on page 3 undefined o
+n input line 55.
+
+document.tex:57:Warning: Referência não definida
+
+document.tex:57: LaTeX Warning: Reference `chap:conclusao' on page 3 undefined 
+on input line 57.
+
+) (./src/revisao.tex [3] [4]
+Cap\'{\i }tulo 2.
+
+Underfull \hbox (badness 10000) in paragraph at lines 1--1
+
+
+document.tex:7: LaTeX Warning: Citation 'Vieira2006' on page 5 undefined on inp
+ut line 7.
+
+
+document.tex:7: LaTeX Warning: Citation 'Kohonen:2001:SM' on page 5 undefined o
+n input line 7.
+
+
+document.tex:9: LaTeX Warning: Citation 'Carneiro2008' on page 5 undefined on i
+nput line 9.
+
+
+document.tex:11: LaTeX Warning: Citation 'Gormley2008' on page 5 undefined on i
+nput line 11.
+
+[5]
+
+document.tex:13: LaTeX Warning: Citation 'Vieira2006' on page 6 undefined on in
+put line 13.
+
+
+document.tex:13: LaTeX Warning: Citation 'Carneiro2008' on page 6 undefined on 
+input line 13.
+
+
+document.tex:19: LaTeX Warning: Citation 'Shannon2001' on page 6 undefined on i
+nput line 19.
+
+
+document.tex:21: LaTeX Warning: Citation 'Li1990' on page 6 undefined on input 
+line 21.
+
+
+document.tex:23: LaTeX Warning: Citation 'Kraskov2004' on page 6 undefined on i
+nput line 23.
+
+
+document.tex:31: LaTeX Warning: Citation 'Darbellay1999' on page 6 undefined on
+ input line 31.
+
+
+document.tex:35: LaTeX Warning: Citation 'Engel' on page 6 undefined on input l
+ine 35.
+
+
+document.tex:35: LaTeX Warning: Citation 'Tejada2003a' on page 6 undefined on i
+nput line 35.
+
+[6]
+
+document.tex:43: LaTeX Warning: Citation 'Tejada2003a' on page 7 undefined on i
+nput line 43.
+
+document.tex:53:Warning: Referência não definida
+
+document.tex:53: LaTeX Warning: Reference `eq:fraq' on page 7 undefined on inpu
+t line 53.
+
+document.tex:55:Warning: Referência não definida
+
+document.tex:55: LaTeX Warning: Reference `fig:iris' on page 7 undefined on inp
+ut line 55.
+
+
+document.tex:55: LaTeX Warning: Citation 'iris' on page 7 undefined on input li
+ne 55.
+
+
+Overfull \hbox (1.0408pt too wide) in paragraph at lines 55--56
+[]\T1/aer/m/n/10.95 A Fi-gura [][] apre-senta um exem-
+[7] <images/iris-force.png, id=109, 995.97093pt x 495.35063pt>
+<use images/iris-force.png>
+
+document.tex:69: LaTeX Warning: Citation 'Abello2006' on page 8 undefined on in
+put line 69.
+
+
+document.tex:69: LaTeX Warning: Citation 'Archambault2008' on page 8 undefined 
+on input line 69.
+
+
+document.tex:69: LaTeX Warning: Citation 'Lambert2010' on page 8 undefined on i
+nput line 69.
+
+
+document.tex:69: LaTeX Warning: Citation 'Hurter2012' on page 8 undefined on in
+put line 69.
+
+
+document.tex:69: LaTeX Warning: Citation 'Selassie2011' on page 8 undefined on 
+input line 69.
+
+
+document.tex:69: LaTeX Warning: Citation 'Ersoy2011' on page 8 undefined on inp
+ut line 69.
+
+
+document.tex:69: LaTeX Warning: Citation 'Luo2012' on page 8 undefined on input
+ line 69.
+
+
+document.tex:71: LaTeX Warning: Citation 'Ersoy2011' on page 8 undefined on inp
+ut line 71.
+
+
+document.tex:71: LaTeX Warning: Citation 'Ersoy2011' on page 8 undefined on inp
+ut line 71.
+
+[8 <./images/iris-force.png>]
+document.tex:73:Warning: Referência não definida
+
+document.tex:73: LaTeX Warning: Reference `fig:eb' on page 9 undefined on input
+ line 73.
+
+
+Overfull \hbox (14.28416pt too wide) in paragraph at lines 73--74
+\T1/aer/m/n/10.95 sem-pe-nho com-pu-ta-ci-o-nal. A Fi-gura [][]
+<images/example-bundling.png, id=118, 704.6325pt x 360.59718pt>
+<use images/example-bundling.png>
+
+document.tex:78: LaTeX Warning: Citation 'Ersoy2011' on page 9 undefined on inp
+ut line 78.
+
+) (./src/banco.tex [9 <./images/example-bundling.png>] [10]
+Cap\'{\i }tulo 3.
+
+Underfull \hbox (badness 10000) in paragraph at lines 1--1
+
+
+document.tex:7: LaTeX Warning: Citation 'www.tse-rep' on page 11 undefined on i
+nput line 7.
+
+
+document.tex:7: LaTeX Warning: Citation 'www.tse' on page 11 undefined on input
+ line 7.
+
+
+Overfull \hbox (23.33562pt too wide) in paragraph at lines 7--8
+[]\T1/aer/m/n/10.95 Os da-dos uti-li-za-dos neste tra-ba-lho são pro-ve-ni-en-t
+es do re-po-si-tó-rio de da-dos do TSE [[]
+
+document.tex:11: LaTeX Warning: Citation 'www.csv' on page 11 undefined on inpu
+t line 11.
+
+[11]
+document.tex:16:Warning: Referência não definida
+
+document.tex:16: LaTeX Warning: Reference `fig:rep-geral' on page 12 undefined 
+on input line 16.
+
+
+Overfull \hbox (54.94452pt too wide) in paragraph at lines 16--17
+\T1/aer/m/n/10.95 e pres-ta-ção de con-tas, como mos-tra a Fi-gura [][].
+<images/rep-geral.png, id=135, 1075.76906pt x 264.23718pt>
+<use images/rep-geral.png>
+document.tex:33:Warning: Referência não definida
+
+document.tex:33: LaTeX Warning: Reference `fig:candidatos' on page 12 undefined
+ on input line 33.
+
+
+Overfull \hbox (254.16965pt too wide) in paragraph at lines 33--34
+\T1/aer/m/n/10.95 tura, bens dos can-di-da-tos, le-gen-das po-lí-ti-cas e va-ga
+s dis-po-ní-veis, como mos-tra a Fi-gura [][]. 
+<images/candidatos.png, id=136, 1057.70157pt x 267.24844pt>
+<use images/candidatos.png>
+
+document.tex:44: LaTeX Warning: Citation 'Lei8429' on page 12 undefined on inpu
+t line 44.
+
+[12 <./images/rep-geral.png>]
+document.tex:52:Warning: Referência não definida
+
+document.tex:52: LaTeX Warning: Reference `fig:resultados' on page 13 undefined
+ on input line 52.
+
+<images/resultados.png, id=145, 1348.28719pt x 455.45157pt>
+<use images/resultados.png> [13 <./images/candidatos.png> <./images/resultados.
+png>] [14]
+
+document.tex:93: LaTeX Warning: Citation 'EditDist' on page 15 undefined on inp
+ut line 93.
+
+
+document.tex:93: LaTeX Warning: Citation 'Navarro2001' on page 15 undefined on 
+input line 93.
+
+
+document.tex:104: LaTeX Warning: Citation 'www.datasus' on page 15 undefined on
+ input line 104.
+
+document.tex:107:Warning: Referência não definida
+
+document.tex:107: LaTeX Warning: Reference `fig:datasus-ut' on page 15 undefine
+d on input line 107.
+
+
+Overfull \hbox (160.64288pt too wide) in paragraph at lines 107--108
+\T1/aer/m/n/10.95 até dis-tri-tos de um mu-ni-cí-pio, como pode ser ob-ser-vado
+ na Fi-gura [][]. 
+<images/datasus-ut.pdf, id=162, 602.25pt x 602.25pt>
+<use images/datasus-ut.pdf> [15]
+
+document.tex:120: LaTeX Warning: Citation 'www.lbo' on page 16 undefined on inp
+ut line 120.
+
+document.tex:122:Warning: Referência não definida
+
+document.tex:122: LaTeX Warning: Reference `fig:locations-db' on page 16 undefi
+ned on input line 122.
+
+<images/locations-db.png, id=170, 731.73375pt x 325.215pt>
+<use images/locations-db.png>
+
+document.tex:127: LaTeX Warning: Citation 'www.schemaspy' on page 16 undefined 
+on input line 127.
+
+[16 <./images/datasus-ut.pdf>]
+document.tex:158:Warning: Referência não definida
+
+document.tex:158: LaTeX Warning: Reference `tab:election' on page 17 undefined 
+on input line 158.
+
+
+Overfull \hbox (200.5978pt too wide) in paragraph at lines 158--159
+\T1/aer/m/n/10.95 para cada cargo como tam-bém criar a ta-bela elei-ção como mo
+s-tra a Ta-bela [][]. 
+[17 <./images/locations-db.png>]
+document.tex:186:Warning: Referência não definida
+
+document.tex:186: LaTeX Warning: Reference `sub:desamb' on page 18 undefined on
+ input line 186.
+
+
+document.tex:188: LaTeX Warning: Citation 'www.ibge' on page 18 undefined on in
+put line 188.
+
+[18]
+document.tex:207:Warning: Referência não definida
+
+document.tex:207: LaTeX Warning: Reference `sub:candidature' on page 19 undefin
+ed on input line 207.
+
+
+Overfull \hbox (77.94113pt too wide) in paragraph at lines 207--208
+[]\T1/aer/m/n/10.95 A ta-bela de elei-ções foi uti-li-zada na Sub-se-ção [][]
+document.tex:213:Warning: Referência não definida
+
+document.tex:213: LaTeX Warning: Reference `sub:desamb' on page 19 undefined on
+ input line 213.
+
+
+Overfull \hbox (3.905pt too wide) in paragraph at lines 213--214
+\T1/aer/m/n/10.95 abor-da-gem des-crita na Sub-se-ção [][]
+[19]) (./src/analises.tex [20]
+Cap\'{\i }tulo 4.
+
+Underfull \hbox (badness 10000) in paragraph at lines 1--1
+
+document.tex:7:Warning: Referência não definida
+
+document.tex:7: LaTeX Warning: Reference `tab:cand-res' on page 21 undefined on
+ input line 7.
+
+
+Overfull \hbox (210.05986pt too wide) in paragraph at lines 7--8
+\T1/aer/m/n/10.95 su-cesso de suas cam-pa-nhas. Com este ob-je-tivo em mente, c
+onstruiu-se a Ta-bela [][]
+[21]
+document.tex:48:Warning: Referência não definida
+
+document.tex:48: LaTeX Warning: Reference `chap:revisao' on page 22 undefined o
+n input line 48.
+
+document.tex:48:Warning: Referência não definida
+
+document.tex:48: LaTeX Warning: Reference `fig:mi1' on page 22 undefined on inp
+ut line 48.
+
+
+Overfull \hbox (161.3765pt too wide) in paragraph at lines 48--49
+\T1/aer/m/n/10.95 triz de in-for-ma-ção mú-tua, dis-cu-tida com mais de-ta-lhes
+ no Ca-pí-tulo [][],
+<images/mim-all-text-lower.pdf, id=256, 505.89pt x 505.89pt>
+<use images/mim-all-text-lower.pdf>
+
+document.tex:56: LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+document.tex:58:Warning: Referência não definida
+
+document.tex:58: LaTeX Warning: Reference `fig:bar1' on page 22 undefined on in
+put line 58.
+
+<images/bar-all-inc.pdf, id=257, 451.07912pt x 466.91963pt>
+<use images/bar-all-inc.pdf>
+
+document.tex:65: LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[22] [23 <./images/mim-all-text-lower.pdf>]
+document.tex:73:Warning: Referência não definida
+
+document.tex:73: LaTeX Warning: Reference `chap:banco' on page 24 undefined on 
+input line 73.
+
+
+Overfull \hbox (253.96173pt too wide) in paragraph at lines 73--74
+[]\T1/aer/m/n/10.95 Um atri-buto que pode cha-mar a aten-ção é a es-co-la-ri-da
+de do can-di-dato. No Ca-pí-tulo [][]
+[24 <./images/bar-all-inc.pdf>]
+
+document.tex:83: LaTeX Warning: Citation 'Tollis1998' on page 25 undefined on i
+nput line 83.
+
+
+document.tex:83: LaTeX Warning: Citation 'Tejada2003' on page 25 undefined on i
+nput line 83.
+
+document.tex:83:Warning: Referência não definida
+
+document.tex:83: LaTeX Warning: Reference `chap:revisao' on page 25 undefined o
+n input line 83.
+
+document.tex:87:Warning: Referência não definida
+
+document.tex:87: LaTeX Warning: Reference `fig:initial-proj' on page 25 undefin
+ed on input line 87.
+
+<images/initial-proj.png, id=290, 460.72125pt x 497.60907pt>
+<use images/initial-proj.png> [25]
+document.tex:96:Warning: Referência não definida
+
+document.tex:96: LaTeX Warning: Reference `fig:initial-edges' on page 26 undefi
+ned on input line 96.
+
+
+Overfull \hbox (160.78249pt too wide) in paragraph at lines 96--97
+\T1/aer/m/n/10.95 em co-mum para cons-truir a re-pre-sen-ta-ção vi-sual do graf
+o. A Fi-gura [][]
+<images/initial-edges.png, id=296, 460.72125pt x 497.60907pt>
+<use images/initial-edges.png> [26 <./images/initial-proj.png>]
+document.tex:105:Warning: Referência não definida
+
+document.tex:105: LaTeX Warning: Reference `chap:revisao' on page 27 undefined 
+on input line 105.
+
+document.tex:105:Warning: Referência não definida
+
+document.tex:105: LaTeX Warning: Reference `fig:initial-bund' on page 27 undefi
+ned on input line 105.
+
+
+Overfull \hbox (61.55559pt too wide) in paragraph at lines 105--106
+\T1/aer/m/n/10.95 sul-tado ob-tido pode ser ob-ser-vado na Fi-gura [][].
+<images/initial-bund.png, id=304, 460.72125pt x 497.60907pt>
+<use images/initial-bund.png>
+document.tex:110:Warning: Referência não definida
+
+document.tex:110: LaTeX Warning: Reference `fig:initial-edges' on page 27 undef
+ined on input line 110.
+
+[27 <./images/initial-edges.png>]
+document.tex:114:Warning: Referência não definida
+
+document.tex:114: LaTeX Warning: Reference `fig:initial-bund' on page 28 undefi
+ned on input line 114.
+
+
+Overfull \hbox (31.51547pt too wide) in paragraph at lines 114--115
+[]\T1/aer/m/n/10.95 Com base nos re-sul-ta-dos da Fi-gura [][]
+[28 <./images/initial-bund.png>]
+document.tex:118:Warning: Referência não definida
+
+document.tex:118: LaTeX Warning: Reference `fig:man-proj' on page 29 undefined 
+on input line 118.
+
+document.tex:118:Warning: Referência não definida
+
+document.tex:118: LaTeX Warning: Reference `fig:initial-proj' on page 29 undefi
+ned on input line 118.
+
+document.tex:118:Warning: Referência não definida
+
+document.tex:118: LaTeX Warning: Reference `fig:man-edges' on page 29 undefined
+ on input line 118.
+
+
+Overfull \hbox (245.17424pt too wide) in paragraph at lines 118--119
+\T1/aer/m/n/10.95 tado de uma ma-ni-pu-la-ção so-bre a pro-je-ção mul-ti-di-men
+-si-o-nal apre-sen-tada na Fi-gura [][].
+
+Overfull \hbox (96.33466pt too wide) in paragraph at lines 118--119
+\T1/aer/m/n/10.95 en-tre as ares-tas, como pode ser ob-ser-vado na Fi-gura [][]
+. 
+<images/man-proj.png, id=317, 465.23813pt x 485.56406pt>
+<use images/man-proj.png>
+document.tex:123:Warning: Referência não definida
+
+document.tex:123: LaTeX Warning: Reference `fig:initial-proj' on page 29 undefi
+ned on input line 123.
+
+
+document.tex:125: LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<images/man-bund.png, id=318, 460.72125pt x 472.01344pt>
+<use images/man-bund.png>
+
+document.tex:132: LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+document.tex:134:Warning: Referência não definida
+
+document.tex:134: LaTeX Warning: Reference `fig:pt' on page 29 undefined on inp
+ut line 134.
+
+document.tex:134:Warning: Referência não definida
+
+document.tex:134: LaTeX Warning: Reference `fig:psdb' on page 29 undefined on i
+nput line 134.
+
+
+Overfull \hbox (180.75575pt too wide) in paragraph at lines 134--135
+\T1/aer/m/n/10.95 ras [][] e [][]
+<images/pt.png, id=319, 460.72125pt x 472.01344pt> <use images/pt.png>
+
+document.tex:141: LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<images/psdb.png, id=320, 460.72125pt x 472.01344pt> <use images/psdb.png>
+
+document.tex:149: LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+) (./src/conclusao.tex [29] [30 <./images/man-proj.png>] [31 <./images/man-bund
+.png>] [32 <./images/pt.png>] [33 <./images/psdb.png>] [34]
+Cap\'{\i }tulo 5.
+
+Underfull \hbox (badness 10000) in paragraph at lines 1--1
+
+[35]
+
+document.tex:17: LaTeX Warning: Citation 'idis' on page 36 undefined on input l
+ine 17.
+
+
+document.tex:17: LaTeX Warning: Citation 'Lei8313' on page 36 undefined on inpu
+t line 17.
+
+
+document.tex:17: LaTeX Warning: Citation 'abong' on page 36 undefined on input 
+line 17.
+
+[36])
+
+document.tex:127: LaTeX Warning: Empty bibliography on input line 126.
+
+
+Package bibentry Warning: You have used \nobibliography* 
+(bibentry)                without a following \bibliography.
+(bibentry)                You may not be able to run BibTeX.
+
+[37] (./document.aux)
+
+Package rerunfilecheck Warning: File `document.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+
+document.tex:128: LaTeX Warning: There were undefined references.
+
+
+document.tex:128: LaTeX Warning: Label(s) may have changed. Rerun to get cross-
+references right.
+
+
+Package biblatex Warning: Please (re)run Biber on the file:
+(biblatex)                document
+(biblatex)                and rerun LaTeX afterwards.
+
+ )
+(\end occurred inside a group at level 1)
+
+### semi simple group (level 1) entered at line 110 (\begingroup)
+### bottom level
+(see the transcript file for additional information)</usr/share/texmf-dist/font
+s/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/c
+mmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr
+/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmr17.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></
+usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb></usr/share/texmf-dist/fonts/typ
+e1/public/amsfonts/cm/cmss12.pfb></usr/share/texmf-dist/fonts/type1/public/amsf
+onts/cm/cmss17.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx
+10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi17.pfb></usr/
+share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texmf-dist/fonts/type1
+/public/amsfonts/cm/cmtt9.pfb>
+Output written on document.pdf (45 pages, 2849076 bytes).
+Transcript written on document.log.
